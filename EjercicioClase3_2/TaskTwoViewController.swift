@@ -15,28 +15,25 @@ class TaskTwoViewController: UIViewController {
     }
 
     @IBOutlet weak var counterLabel: UILabel!
-    var counter = 10
+    var counter = Const.initialValue
     
     @IBAction func continueButtonPressed(_ sender: Any) {
         decrease()
+        showCounter()
     }
     
     func decrease(){
-            if counter == Const.lastValue {
-                restartCounter()
-            }else{
-                counter -= 1
-            }
-        showCounter(counter: counter)
-        }
-        
-        func restartCounter(){
+        if counter > 0 {
+            counter -= 1
+        }else{
             counter = Const.lastValue
         }
-        
-        func showCounter(counter:Int){
-            counterLabel.text = "\(counter)"
-        }
+    }
+      
+    func showCounter(){
+        counterLabel.text = "\(counter)"
+    }
     
 }
+
 
